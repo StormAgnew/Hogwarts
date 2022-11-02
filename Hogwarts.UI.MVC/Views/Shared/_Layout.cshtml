@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="~/css/aos.css">
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="~/css/style.css">
 
 </head>
 
@@ -45,7 +45,7 @@
             <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
-                        <a href="index.html">Kiddy<span class="text-primary">.</span></a>
+                        <a href="~/">Kiddy<span class="text-primary">.</span></a>
                     </div>
                     <div class="site-quick-contact d-none d-lg-flex ml-auto ">
                         <div class="d-flex site-info align-items-center mr-5">
@@ -70,9 +70,9 @@
 
                     <nav class="site-navigation text-left mr-auto d-none d-lg-block" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
-                            <li class="active"><a href="index.html" class="nav-link">Home</a></li>
-                            <li><a href="about.html" class="nav-link">About</a></li>
-                            <li><a href="packages.html" class="nav-link">Packages</a></li>
+                            <li><a href="~/" class="nav-link">Home</a></li>
+                            <li><a asp-action="About" asp-controller="Home" class="nav-link">About</a></li>
+                            <li><a href="#" class="nav-link">Packages</a></li>
                             <li><a href="gallery.html" class="nav-link">Gallery</a></li>
                             <li><a href="pricing.html" class="nav-link">Pricing</a></li>
                             <li><a href="contact.html" class="nav-link">Contact</a></li>
