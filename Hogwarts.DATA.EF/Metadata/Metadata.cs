@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hogwarts.DATA.EF.Metadata
+namespace Hogwarts.DATA.EF.Models
 {
     #region Students Metadata
     public class StudentsMetadata
@@ -22,6 +22,10 @@ namespace Hogwarts.DATA.EF.Metadata
         [Display(Name = "Last Name")]
         [StringLength(20)]
         public string LastName { get; set; }
+
+        [Display(Name = "Name")]
+        public string FullName { get { return $"{FirstName}{LastName}"; } }
+
 
         [Required(ErrorMessage = "A Major is required to register!")]
         [StringLength(15)]
@@ -107,6 +111,7 @@ namespace Hogwarts.DATA.EF.Metadata
 
         [StringLength(20)]
         public string Location { get; set; }
+
 
         //FK?
         public int SCSID { get; set; }

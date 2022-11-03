@@ -1,4 +1,4 @@
-﻿using Hogwarts.DATA.EF.Metadata;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,10 @@ namespace Hogwarts.DATA.EF.Models
 {
     [ModelMetadataType(typeof(StudentsMetadata))]
     public partial class Students
-    {}
+    {
+      
+    }
+    
 
     [ModelMetadataType(typeof(EnrollmentsMetadata))]
     public partial class Enrollments
@@ -27,7 +30,7 @@ namespace Hogwarts.DATA.EF.Models
     [ModelMetadataType(typeof(ScheduledClassesMetadata))]
     public partial class ScheduledClasses
     {
-
+    
     }
     [ModelMetadataType(typeof(CoursesMetadata))]
     public partial class Courses

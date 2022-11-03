@@ -11,7 +11,8 @@ using System.Data;
 
 namespace Hogwarts.UI.MVC.Controllers
 {
-    [Authorize(Roles = "Admin, Scheduler")]
+    [Authorize(Roles = "Admin,Scheduler")]
+    //[Authorize(Roles = "Scheduler")]
     public class StudentsController : Controller
     {
         private readonly SATContext _context;
