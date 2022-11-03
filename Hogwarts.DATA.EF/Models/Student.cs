@@ -13,6 +13,8 @@ namespace Hogwarts.DATA.EF.Models
         public int StudentId { get; set; }
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
+
+        public string FullName { get { return $"{FirstName}{LastName}"; } }
         public string? Major { get; set; }
         public string? Address { get; set; }
         public string? City { get; set; }
