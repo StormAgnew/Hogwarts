@@ -1,4 +1,7 @@
-﻿<!doctype html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -42,7 +45,7 @@
 
         <header class="site-navbar site-navbar-target pb-5" role="banner">
 
-            <div class="container mb-3">
+           @* <div class="container mb-3">
                 <div class="d-flex align-items-center">
                     <div class="site-logo mr-auto">
                         <a href="~/">Kiddy<span class="text-primary">.</span></a>
@@ -59,7 +62,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div>*@
 
 
             <div class="container mt-3">
@@ -72,10 +75,25 @@
                         <ul class="site-menu main-menu js-clone-nav mr-auto ">
                             <li><a href="~/" class="nav-link">Home</a></li>
                             <li><a asp-action="About" asp-controller="Home" class="nav-link">About</a></li>
-@*                            <li><a href="#" class="nav-link">Packages</a></li>
-                            <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-                            <li><a href="pricing.html" class="nav-link">Pricing</a></li>*@
+                            <li><a asp-action="Index" asp-controller="Courses" class="nav-link">Courses</a></li>
                             <li><a asp-action="Contact" asp-controller="Home" class="nav-link">Contact</a></li>
+
+                            @if (signInManager.IsSignedIn(User))
+                            {
+                                if (User.IsInRole("Admin"))
+                                {
+                            <li><a asp-action="Index" asp-controller="Enrollment" class="nav-link">Enrollment</a></li>
+                            <li><a asp-action="Index" asp-controller="Students" class="nav-link">Student List</a></li>
+                                    
+                                }
+                                if (User.IsInRole("Scheduler"))
+                                {
+                                    <li><a asp-action="Index" asp-controller="Enrollment" class="nav-link">Enrollment</a></li>
+                                    <li><a asp-action="Index" asp-controller="Students" class="nav-link">Student List</a></li>
+
+                                }
+
+                            }
                             <partial name="_LoginPartial"/>
                         </ul>
                     </nav>
@@ -89,8 +107,13 @@
             </div>
         </header>
 
-    
+        <div class="site-section">
+            <div class="container-fluid">
             @RenderBody()
+
+            </div>
+
+        </div>
             
       
 
