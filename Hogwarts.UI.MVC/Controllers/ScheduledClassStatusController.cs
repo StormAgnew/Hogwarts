@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hogwarts.DATA.EF.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace Hogwarts.UI.MVC.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ScheduledClassStatusController : Controller
     {
         private readonly SATContext _context;
@@ -19,12 +22,14 @@ namespace Hogwarts.UI.MVC.Controllers
         }
 
         // GET: ScheduledClassStatus
+        
         public async Task<IActionResult> Index()
         {
               return View(await _context.ScheduledClassStatuses.ToListAsync());
         }
 
         // GET: ScheduledClassStatus/Details/5
+        
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.ScheduledClassStatuses == null)
@@ -43,6 +48,7 @@ namespace Hogwarts.UI.MVC.Controllers
         }
 
         // GET: ScheduledClassStatus/Create
+        
         public IActionResult Create()
         {
             return View();

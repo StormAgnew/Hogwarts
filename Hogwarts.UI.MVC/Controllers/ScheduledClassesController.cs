@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hogwarts.DATA.EF.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Hogwarts.UI.MVC.Controllers
 {
@@ -19,6 +20,7 @@ namespace Hogwarts.UI.MVC.Controllers
         }
 
         // GET: ScheduledClasses
+        
         public async Task<IActionResult> Index()
         {
             var sATContext = _context.ScheduledClasses.Include(s => s.Course).Include(s => s.Scs);
@@ -46,6 +48,7 @@ namespace Hogwarts.UI.MVC.Controllers
         }
 
         // GET: ScheduledClasses/Create
+        [Authorize(Roles = "Admin, Scheduler")]
         public IActionResult Create()
         {
             ViewData["CourseId"] = new SelectList(_context.Courses, "CourseId", "CourseDescription");
@@ -58,6 +61,7 @@ namespace Hogwarts.UI.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Scheduler")]
         public async Task<IActionResult> Create([Bind("ScheduledClassId,CourseId,StartDate,EndDate,InstructorName,Location,Scsid")] ScheduledClass scheduledClass)
         {
             if (ModelState.IsValid)
@@ -72,6 +76,7 @@ namespace Hogwarts.UI.MVC.Controllers
         }
 
         // GET: ScheduledClasses/Edit/5
+        [Authorize(Roles = "Admin, Scheduler")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.ScheduledClasses == null)
@@ -94,6 +99,7 @@ namespace Hogwarts.UI.MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Scheduler")]
         public async Task<IActionResult> Edit(int id, [Bind("ScheduledClassId,CourseId,StartDate,EndDate,InstructorName,Location,Scsid")] ScheduledClass scheduledClass)
         {
             if (id != scheduledClass.ScheduledClassId)
@@ -127,6 +133,7 @@ namespace Hogwarts.UI.MVC.Controllers
         }
 
         // GET: ScheduledClasses/Delete/5
+        [Authorize(Roles = "Admin, Scheduler")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.ScheduledClasses == null)
@@ -149,6 +156,7 @@ namespace Hogwarts.UI.MVC.Controllers
         // POST: ScheduledClasses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Scheduler")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.ScheduledClasses == null)

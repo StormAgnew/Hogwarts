@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hogwarts.DATA.EF.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace Hogwarts.UI.MVC.Controllers
 {
+    [Authorize(Roles = "Admin, Scheduler")]
     public class StudentsController : Controller
     {
         private readonly SATContext _context;
