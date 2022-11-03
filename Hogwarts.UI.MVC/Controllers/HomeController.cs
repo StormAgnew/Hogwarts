@@ -23,10 +23,7 @@ namespace Hogwarts.UI.MVC.Controllers
             return View();
         }
 
-        public IActionResult Contact()
-        {
-            return View();
-        }
+     
 
 
 

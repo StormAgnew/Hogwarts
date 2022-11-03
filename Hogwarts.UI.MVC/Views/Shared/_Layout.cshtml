@@ -76,7 +76,7 @@
                             <li><a href="~/" class="nav-link">Home</a></li>
                             <li><a asp-action="About" asp-controller="Home" class="nav-link">About</a></li>
                             <li><a asp-action="Index" asp-controller="Courses" class="nav-link">Courses</a></li>
-                            <li><a asp-action="Contact" asp-controller="Home" class="nav-link">Contact</a></li>
+                            <li><a asp-action="Contact" asp-controller="ContactViewModels" class="nav-link">Contact</a></li>
 
                             @if (signInManager.IsSignedIn(User))
                             {
@@ -192,7 +192,7 @@
 
     <script src="~/js/main.js"></script>
 
-    @RenderSection("scripts", false)
+    @RenderSectionAsync("scripts", false)
 
 </body>
 
