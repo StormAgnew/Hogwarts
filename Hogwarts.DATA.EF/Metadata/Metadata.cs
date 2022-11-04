@@ -24,10 +24,10 @@ namespace Hogwarts.DATA.EF.Models
         public string LastName { get; set; }
 
         [Display(Name = "Name")]
-        public string FullName { get { return $"{FirstName}{LastName}"; } }
+        public string FullName { get { return $"{FirstName} {LastName}"; } }
 
 
-        [Required(ErrorMessage = "A Major is required to register!")]
+        
         [StringLength(15)]
         public string Major { get; set; }
 

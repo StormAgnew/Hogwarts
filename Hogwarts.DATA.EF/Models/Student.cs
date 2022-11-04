@@ -14,7 +14,7 @@ namespace Hogwarts.DATA.EF.Models
         public string FirstName { get; set; } = null!;
         public string LastName { get; set; } = null!;
 
-        public string FullName { get { return $"{FirstName}{LastName}"; } }
+        public string FullName { get { return $"{FirstName} {LastName}"; } }
         public string? Major { get; set; }
         public string? Address { get; set; }
         public string? City { get; set; }
@@ -25,7 +25,7 @@ namespace Hogwarts.DATA.EF.Models
         public string? PhotoUrl { get; set; }
         public int Ssid { get; set; }
 
-        public virtual StudentStatus Ss { get; set; } = null!;
-        public virtual ICollection<Enrollment> Enrollments { get; set; }
+        public virtual StudentStatus? Ss { get; set; } = null!;
+        public virtual ICollection<Enrollment>? Enrollments { get; set; }
     }
 }
