@@ -101,15 +101,19 @@ namespace Hogwarts.DATA.EF.Models
         public int CourseId { get; set; }
 
         [DataType(DataType.Date)]
+        [Required]
         public DateTime StartDate { get; set; }
 
         [DataType(DataType.Date)]
+        [Required]
         public DateTime EndDate { get; set; }
 
         [StringLength(40)]
+        [Required]
         public string InstructorName { get; set; }
 
         [StringLength(20)]
+        [Required]
         public string Location { get; set; }
 
 
@@ -149,6 +153,7 @@ namespace Hogwarts.DATA.EF.Models
         public int SCSID { get; set; }
 
         [StringLength(50)]
+        [Required]
         public string SCSName { get; set; }
     }
     #endregion

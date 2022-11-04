@@ -84,13 +84,13 @@
                                 {
                             <li><a asp-action="Index" asp-controller="Enrollments" class="nav-link">Enrollment</a></li>
                             <li><a asp-action="Index" asp-controller="Students" class="nav-link">Student List</a></li>
-                                    
+                            <li><a asp-action="Index" asp-controller="ScheduledClasses" class="nav-link">Class Information</a></li>
                                 }
                                 if (User.IsInRole("Scheduler"))
                                 {
                                     <li><a asp-action="Index" asp-controller="Enrollments" class="nav-link">Enrollment</a></li>
                                     <li><a asp-action="Index" asp-controller="Students" class="nav-link">Student List</a></li>
-
+                                    <li><a asp-action="Index" asp-controller="ScheduledClasses" class="nav-link">Class Information</a></li>
                                 }
 
                             }

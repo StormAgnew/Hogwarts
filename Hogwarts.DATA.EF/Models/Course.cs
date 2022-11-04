@@ -18,6 +18,6 @@ namespace Hogwarts.DATA.EF.Models
         public string? Notes { get; set; }
         public bool IsActive { get; set; }
 
-        public virtual ICollection<ScheduledClass> ScheduledClasses { get; set; }
+        public virtual ICollection<ScheduledClass>? ScheduledClasses { get; set; }
     }
 }
