@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Hogwarts.DATA.EF.Models.Course>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Courses";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 @if (User.IsInRole("Admin"))
 {
